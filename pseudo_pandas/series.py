@@ -22,3 +22,9 @@ class Series:
 
     def __len__(self):
         return len(self.data)
+
+    def __iter__(self):
+        return ((i, self.loc[i]) for i in self.index)
+
+    def __repr__(self):
+        return '\n'.join(f'{idx}\t{v}' for idx, v in self) + f'\ndtype:{self.data.dtype}'
